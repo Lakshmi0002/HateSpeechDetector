@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hate Speech Detector</title>
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* Container styling */
+        .container {
+            width: 50%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        /* Label styling */
+        label {
+            font-size: 16px;
+            color: #555;
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Textarea styling */
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            resize: vertical;
+        }
+        /* Submit button styling */
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #8D6E63;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #333333;
+        }
+        /* Result styling */
+        .result {
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #e1f7d5;
+            border-radius: 4px;
+            color: #388e3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hate Speech Detector</h1>
+        
+        <!-- Form for text input -->
+        <form method="post" action="/">
+            <label for="text_input">Enter Text:</label>
+            <textarea id="text_input" name="text_input" rows="6" placeholder="Type your text here..." required></textarea>
+            <input type="submit" value="Analyze Text">
+        </form>
+        
+        <!-- Display the prediction result -->
+        {% if result %}
+        <div class="result">
+            Prediction: {{ result }}
+        </div>
+        {% endif %}
+        
+    </div>
+</body>
+</html>
